@@ -1,0 +1,39 @@
+﻿<h3>FetchDataComponent</h3>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>UserId</td>
+                <td>Id</td>
+                <td>Title</td>
+                <td>Body</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in FetchedData)
+            {
+                <tr>
+
+                    <td>@data.UserId</td>
+                    <td>@data.Id</td>
+                    <td>@data.Title</td>
+                    <td>@data.Body</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@using BlazorApp1.Data
+@inject FetchDataService FetchDataService
+
+@code {
+    List<JsonData> FetchedData = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        FetchedData = await FetchDataService.FetchData();
+    }
+}
