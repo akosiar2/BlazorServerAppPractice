@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>BlazorApp1</PageTitle>
+
+<div class="page">
+    <div class="sidebar @Collapsed" @onmouseover="ToogleCollapsed" @onmouseout="ToogleCollapsed">
+        <NavMenu IconActived="@_iconMenuActive" ShowIconMenu="ToggleIconMenu" />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+@code {
+    private bool _iconMenuActive { get; set; } = false;
+    private string? IconMenuCssClass => _iconMenuActive ? "width: 80px;" : null;
+    private string? Collapsed => _iconMenuActive ? "collapsed" : null;
+
+    protected void ToggleIconMenu(bool iconMenuActive)
+    {
+        _iconMenuActive = iconMenuActive;
+    }
+
+    private void ToogleCollapsed()
+    {
+        // _iconMenuActive = !_iconMenuActive;
+        // ToggleIconMenu(_iconMenuActive);
+    }
+}
