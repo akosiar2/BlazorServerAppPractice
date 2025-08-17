@@ -3,8 +3,8 @@
 <PageTitle>BlazorApp1</PageTitle>
 
 <div class="page">
-    <div class="sidebar @Collapsed" @onmouseover="ToogleCollapsed" @onmouseout="ToogleCollapsed">
-        <NavMenu IconActived="@_iconMenuActive" ShowIconMenu="ToggleIconMenu" />
+    <div class="sidebar @Collapsed">
+        <NavMenu ShowIconMenu="ToggleIconMenu" />
     </div>
 
     <main>
@@ -28,9 +28,4 @@
         _iconMenuActive = iconMenuActive;
     }
 
-    private void ToogleCollapsed()
-    {
-        // _iconMenuActive = !_iconMenuActive;
-        // ToggleIconMenu(_iconMenuActive);
-    }
 }
