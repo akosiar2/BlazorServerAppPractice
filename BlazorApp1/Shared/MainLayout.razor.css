@@ -50,6 +50,11 @@ main {
     .top-row a, .top-row .btn-link {
         margin-left: 0;
     }
+
+    .sidebar.collapsed {
+        transition: 1s;
+        width: 100%;
+    }
 }
 
 @media (min-width: 641px) {
